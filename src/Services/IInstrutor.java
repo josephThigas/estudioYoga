@@ -1,6 +1,6 @@
-package Inter;
+package Services;
 
-public interface IPessoa {
+public interface IInstrutor {
     public void apresentar();
     public void exibirIdentificacao();
 }

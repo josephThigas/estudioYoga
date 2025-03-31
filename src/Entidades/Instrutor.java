@@ -8,6 +8,11 @@ public class Instrutor extends Pessoa {
     private String matriculaProfessor;
     private String especializacao;
 
+    @Override
+    public String toString() {
+        return "Nome: " + this.getNome() + " CRM " + this.CRM + " Especialização: " + this.especializacao;
+    }
+
     public Instrutor() {
     }
 

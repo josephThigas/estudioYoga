@@ -1,6 +1,7 @@
 package Entidades;
 
 public class Aula {
+    private int id;
     private String horarioEntrada;
     private String horarioSaida;
     private String professor;
@@ -10,7 +11,8 @@ public class Aula {
     public Aula() {
     }
 
-    public Aula(String horarioEntrada, String horarioSaida, String professor, String dia, String modalidade) {
+    public Aula(int id, String horarioEntrada, String horarioSaida, String professor, String dia, String modalidade) {
+        this.id = id;
         this.horarioEntrada = horarioEntrada;
         this.horarioSaida = horarioSaida;
         this.professor = professor;
@@ -18,6 +20,13 @@ public class Aula {
         this.modalidade = modalidade;
     }
 
+    public int getId() {
+        return this.id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
 
     public String getHorarioEntrada() {
         return this.horarioEntrada;

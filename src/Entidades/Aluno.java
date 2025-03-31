@@ -1,14 +1,20 @@
 package Entidades;
 
 public class Aluno extends Pessoa {
+    private Pessoa pessoa;
     private String horarioEntrada;
     private String horarioSaida;
     private String numeroMatricula;
     private String email;
     private Boolean statusPagamento;
 
-    public Aluno(String nome, String data, String CPF, String endereco, String genero) {
-        super(nome, data, CPF, endereco, genero);
+    @Override
+    public String toString() {
+        return "Nome:" + this.getNome() + " Matrícula: " + this.numeroMatricula + " Email: " + this.email;
+    }
+
+    public Aluno(String nome, String data, String CPF) {
+        super(nome, data, CPF);
     }
     public Aluno(String horarioEntrada, String horarioSaida, String numeroMatricula, String email, Boolean statusPagamento) {
         this.horarioEntrada = horarioEntrada;
@@ -83,5 +89,13 @@ public class Aluno extends Pessoa {
     public void setStatusPagamento(Boolean statusPagamento) {
 
         this.statusPagamento = statusPagamento;
+    }
+
+    public Pessoa getPessoa() {
+        return this.pessoa;
+    }
+
+    public void setPessoa(Pessoa pessoa) {
+        this.pessoa = pessoa;
     }
 }

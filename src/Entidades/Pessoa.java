@@ -1,6 +1,6 @@
 package Entidades;
 
-import Inter.IPessoa;
+import Services.IPessoa;
 
 public abstract class Pessoa implements IPessoa {
     private String nome;
@@ -9,7 +9,6 @@ public abstract class Pessoa implements IPessoa {
     private String endereco;
     private String genero;
 
-    // Construtor com parâmetros
     public Pessoa(String nome, String data, String CPF, String endereco, String genero) {
         this.nome = nome;
         this.data = data;
@@ -18,11 +17,15 @@ public abstract class Pessoa implements IPessoa {
         this.genero = genero;
     }
 
-    // Construtor vazio
     public Pessoa() {
     }
 
-    // Métodos Get e Set
+    public Pessoa(String nome, String data, String CPF) {
+        this.nome = nome;
+        this.data = data;
+        this.CPF = CPF;
+    }
+
     public void setNome(String N) {
         this.nome = N;
     }
