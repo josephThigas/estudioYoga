@@ -5,7 +5,7 @@ import Entidades.Aula;
 import Repositorio.interfaces.IAulaRepository;
 
 public class AulaRepository implements IAulaRepository {
-    private ArrayList<Aula> aulas = new ArrayList<>();
+    private static ArrayList<Aula> aulas = new ArrayList<>();
 
     public void addAula(Aula aula) {
         aulas.add(aula);

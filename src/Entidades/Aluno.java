@@ -78,16 +78,11 @@ public class Aluno extends Pessoa {
         this.email = email;
     }
 
-    public Boolean isStatusPagamento() {
-        return this.statusPagamento;
-    }
-
     public Boolean getStatusPagamento() {
         return this.statusPagamento;
     }
 
     public void setStatusPagamento(Boolean statusPagamento) {
-
         this.statusPagamento = statusPagamento;
     }
 

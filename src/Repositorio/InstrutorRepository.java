@@ -38,4 +38,9 @@ public class InstrutorRepository implements IInstrutorRepository {
     public boolean deleteInstrutor(String id) {
         return instrutores.removeIf(instrutor -> instrutor.getCPF().equals(String.valueOf(id)));
     }
+
+    public String getInstrutoresCount() {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'getInstrutoresCount'");
+    }
 }
