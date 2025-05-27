@@ -3,11 +3,12 @@ package Services;
 import java.util.Scanner;
 import Entidades.Aula;
 import Repositorio.AulaRepository;
+import Entidades.HistoricoAula;
 
 public class AulaService {
 	private static AulaRepository aulaRepository = new AulaRepository();
 
-	public static void manageAulas(Scanner scanner) {
+	public static void manageAulas(Scanner scanner, HistoricoAula historicoAula) {
 		int option;
 		do {
 			System.out.println("=== Menu Aulas ===");
@@ -22,13 +23,13 @@ public class AulaService {
 
 			switch (option) {
 				case 1:
-					createAula(scanner);
+					createAula(scanner, historicoAula);
 					break;
 				case 2:
 					removeAula(scanner);
 					break;
 				case 3:
-					updateAula(scanner);
+					updateAula(scanner, historicoAula);
 					break;
 				case 4:
 					listAulas();
@@ -42,7 +43,7 @@ public class AulaService {
 		} while (option != 5);
 	}
 
-	private static void createAula(Scanner scanner) {
+	private static void createAula(Scanner scanner, HistoricoAula historicoAula) {
 		System.out.print("ID da aula: ");
 		int id = scanner.nextInt();
 		scanner.nextLine();
@@ -59,6 +60,7 @@ public class AulaService {
 
 		Aula aula = new Aula(id, horarioEntrada, horarioSaida, professor, dia, modalidade);
 		aulaRepository.addAula(aula);
+		historicoAula.adicionarAula(aula);
 		System.out.println("Aula cadastrada com sucesso!");
 	}
 
@@ -75,7 +77,7 @@ public class AulaService {
 		}
 	}
 
-	private static void updateAula(Scanner scanner) {
+	private static void updateAula(Scanner scanner, HistoricoAula historicoAula) {
 		System.out.print("ID da aula a ser atualizada: ");
 		int id = scanner.nextInt();
 		scanner.nextLine();
@@ -100,6 +102,9 @@ public class AulaService {
 			aulaExistente.setModalidade(modalidade);
 
 			aulaRepository.updateAula(id, aulaExistente);
+			historicoAula.adicionarAula(
+				new Aula(id, horarioEntrada, horarioSaida, professor, dia, modalidade)
+			);
 		} else {
 			System.out.println("Aula não encontrada!");
 		}
